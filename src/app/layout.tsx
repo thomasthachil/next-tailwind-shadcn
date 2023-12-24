@@ -20,10 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <ClerkProvider>
-        <html lang="en" suppressHydrationWarning>
-          <head />
-          <body>
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body>
+          {/* 
+            * The Provider component is added as deep as possible within the layout to optimize Next.js server/client.
+            * This is because Next.js pre-renders the page on the server-side or statically at build time.
+            * The deeper the Provider component is in the layout, the less likely it is to be included in the server-rendered HTML.
+            * This reduces the size of the HTML and improves performance.
+            */}
+          <ClerkProvider>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -32,9 +38,10 @@ export default function RootLayout({
             >
               {children}
             </ThemeProvider>
-          </body>
-        </html>
-      </ClerkProvider>
+          </ClerkProvider>
+        </body>
+      </html>
+    </ClerkProvider >
     </>
   )
 }
