@@ -3,10 +3,9 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme/theme-provider'
 import { ClerkProvider } from '@clerk/nextjs'
-import { dark } from '@clerk/themes';
-import { useTheme } from 'next-themes'
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
