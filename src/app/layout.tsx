@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body>
@@ -29,19 +29,17 @@ export default function RootLayout({
             * The deeper the Provider component is in the layout, the less likely it is to be included in the server-rendered HTML.
             * This reduces the size of the HTML and improves performance.
             */}
-          <ClerkProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
-          </ClerkProvider>
+
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
-    </ClerkProvider >
-    </>
+    </ClerkProvider>
   )
 }
